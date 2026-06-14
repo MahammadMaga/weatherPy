@@ -1,5 +1,6 @@
 import requests
 import os
+import time
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -41,10 +42,12 @@ while True:
         feels_like = data["main"]["feels_like"]
         humidity = data["main"]["humidity"]
         description = data["weather"][0]["description"]
+        time = time.strftime("%I:%M %p")
 
         print("=" * 40)
         print(f"📍 Weather in {city.capitalize()}")
         print("=" * 40)
+        print(f"Time : {time}")
         print(f"{emoji} {description.capitalize()}")
         print(f"🌡️ Temperature : {temp}°C")
         print(f"🥵 Feels Like  : {feels_like}°C")
